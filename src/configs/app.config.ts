@@ -2,6 +2,10 @@ import { config } from 'dotenv';
 
 config({ path: (process.cwd(), '.env') });
 
+export const appConfig = {
+  port: process.env.port,
+};
+
 export const databaseConfig = {
   type: process.env.DB_TYPE,
   database: process.env.DB_DATABASE,
@@ -10,4 +14,9 @@ export const databaseConfig = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   synchronize: process.env.DB_SYNCHRONIZE,
+};
+
+export const jwtConfig = {
+  secret: process.env.JWT_SECRET,
+  expiresIn: process.env.JWT_EXPIRES_IN,
 };

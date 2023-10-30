@@ -18,6 +18,7 @@ export class User extends AbstractEntity {
   @Column({
     name: 'email',
     nullable: false,
+    unique: true,
   })
   email: string;
 
@@ -33,6 +34,13 @@ export class User extends AbstractEntity {
     nullable: false,
   })
   role: string;
+
+  @Column({
+    name: 'state',
+    default: 'unconfirmed',
+    nullable: false,
+  })
+  state: string;
 
   @OneToMany(() => Token, (token) => token.user)
   tokens: Token[];

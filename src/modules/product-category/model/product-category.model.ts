@@ -17,13 +17,17 @@ export class ProductCategory extends AbstractEntity {
   })
   categoryId: string;
 
-  @ManyToOne(() => Product, (product) => product.productCategories)
+  @ManyToOne(() => Product, (product) => product.productCategories, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({
     name: 'product_id',
   })
   product: Product;
 
-  @ManyToOne(() => Category, (category) => category.productCategories)
+  @ManyToOne(() => Category, (category) => category.productCategories, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({
     name: 'category_id',
   })

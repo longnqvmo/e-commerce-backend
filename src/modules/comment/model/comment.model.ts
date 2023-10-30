@@ -29,19 +29,25 @@ export class Comment extends AbstractEntity {
   })
   comment: string;
 
-  @ManyToOne(() => User, (user) => user.comments)
+  @ManyToOne(() => User, (user) => user.comments, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({
     name: 'user_id',
   })
   user: User;
 
-  @ManyToOne(() => Product, (product) => product.comments)
+  @ManyToOne(() => Product, (product) => product.comments, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({
     name: 'product_id',
   })
   product: Product;
 
-  @ManyToOne(() => Comment, (comment) => comment.childComments)
+  @ManyToOne(() => Comment, (comment) => comment.childComments, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({
     name: 'parent_id',
   })

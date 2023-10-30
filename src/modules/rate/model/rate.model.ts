@@ -1,9 +1,11 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import { Check, Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { AbstractEntity } from '../../../common/model/abstract-base.model';
 import { User } from 'src/modules/user/model/user.model';
 import { Product } from 'src/modules/product/model/product.model';
 
 @Entity({ name: 'rates' })
+@Check('"rate" > 0')
+@Check('"rate" <= 5')
 export class Rate extends AbstractEntity {
   @Column({
     name: 'user_id',

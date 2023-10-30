@@ -19,7 +19,7 @@ export class Token extends AbstractEntity {
   @Column({
     name: 'expried_at',
     type: 'timestamp',
-    nullable: false,
+    nullable: true,
   })
   expriedAt: Date;
 

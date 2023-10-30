@@ -7,4 +7,4 @@ import { Payment } from './model/payment.model';
   controllers: [],
   providers: [],
 })
-export class ProductModule {}
+export class PaymentModule {}

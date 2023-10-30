@@ -31,7 +31,7 @@ export class ProductCart extends AbstractEntity {
 
   @ManyToOne(() => Cart, (cart) => cart.productCarts)
   @JoinColumn({
-    name: 'user_id',
+    name: 'cart_id',
   })
   cart: Cart;
 
