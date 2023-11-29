@@ -11,6 +11,8 @@ import { CommentModule } from './modules/comment/comment.module';
 import { RateModule } from './modules/rate/rate.module';
 import { FavoriteModule } from './modules/favorite/favorite.module';
 import { ProductCategoryModule } from './modules/product-category/product-category.module';
+import { UploadModule } from './modules/upload/upload.module';
+import { MailModule } from './modules/mail/mail.module';
 
 @Module({
   imports: [
@@ -27,6 +29,9 @@ import { ProductCategoryModule } from './modules/product-category/product-catego
     FavoriteModule,
     ProductCategoryModule,
     TokenModule,
+    ProductImageModule,
+    UploadModule,
+    MailModule,
   ],
 })
 export class AppModule {}

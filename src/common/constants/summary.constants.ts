@@ -42,3 +42,14 @@ export enum ProductToCategorySummary {
 export enum TokenSummary {
   GENERATE_TOKEN = 'Generate token',
 }
+
+export enum UploadSummary {
+  UPLOAD_IMAGE = 'Upload image',
+  UPLOAD_IMAGES = 'Upload multiple images',
+  DELETE_IMAGE = 'Delete image',
+  DELETE_IMAGES = 'Delete multiple images',
+}
+
+export enum ProductImageSummary {
+  UPLOAD_PRODUCT_IMAGE = 'Upload product image',
+}

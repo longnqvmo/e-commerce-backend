@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 config({ path: (process.cwd(), '.env') });
 
 export const appConfig = {
-  port: process.env.port,
+  port: process.env.PORT,
 };
 
 export const databaseConfig = {

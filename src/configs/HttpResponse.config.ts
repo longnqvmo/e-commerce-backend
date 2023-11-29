@@ -1,7 +1,7 @@
 export interface HttpResponse {
   statusCode: number;
-  message: string;
-  data: any;
+  message?: string;
+  data?: any;
 }
 
 export const HttpResponse = (status: number, message?: string, data?: any) => {
