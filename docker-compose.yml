@@ -18,6 +18,10 @@ services:
     ports:
       - 6379:6379
 
-  networks:
-    e-comm-network:
-      driver: bridge
+  app:
+    networks:
+      - e-comm-network
+
+networks:
+  e-comm-network:
+    driver: bridge
