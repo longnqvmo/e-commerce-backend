@@ -11,16 +11,11 @@ services:
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: postgres
 
-
   cache:
     image: redis:6.2-alpine
     restart: always
     ports:
       - 6379:6379
-
-  app:
-    networks:
-      - e-comm-network
 
 networks:
   e-comm-network:
