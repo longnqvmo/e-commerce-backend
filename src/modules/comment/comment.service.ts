@@ -19,6 +19,7 @@ export class CommentService {
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
   ) {}
+
   async handleGetAllComment(query: any, paginate: any): Promise<HttpResponse> {
     try {
       const [data, count] = await this.commentRepository

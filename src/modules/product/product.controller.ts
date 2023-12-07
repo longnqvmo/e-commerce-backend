@@ -17,7 +17,7 @@ import { AddProductDTO } from './dto/add-product.dto';
 import { UpdateProductDTO } from './dto/update-product.dto';
 import { IdDTO } from 'src/common/dto/id.dto';
 import { PaginateDTO } from 'src/common/dto/paginate.dto';
-import { ProductsSummary } from 'src/common/constants/summary.constants';
+import { ProductSummary } from 'src/common/constants/summary.constants';
 
 @ApiTags('Products')
 @ApiBearerAuth()
@@ -27,28 +27,34 @@ export class ProductController {
 
   @Get(':id')
   @Public()
-  @ApiOperation({ summary: ProductsSummary.GET_PRODUCT })
+  @ApiOperation({ summary: ProductSummary.GET_PRODUCT })
   getProduct(@Param() idDTO: IdDTO) {
     return this.productService.handleGetProduct(idDTO);
   }
 
   @Get('')
   @Public()
-  @ApiOperation({ summary: ProductsSummary.GET_ALL_PRODUCTS })
+  @ApiOperation({ summary: ProductSummary.GET_ALL_PRODUCTS })
   getAllProduct(@Query() paginateDTO: PaginateDTO) {
     return this.productService.handleGetAllProduct(paginateDTO);
   }
 
   @Post('')
   @Roles(Role.ADMIN)
-  @ApiOperation({ summary: ProductsSummary.ADD_PRODUCT })
+  @ApiOperation({
+    summary: ProductSummary.ADD_PRODUCT,
+    description: `Role: ${Role.ADMIN}`,
+  })
   addProduct(@Body() addProductDTO: AddProductDTO) {
     return this.productService.handleAddProduct(addProductDTO);
   }
 
   @Put(':id')
   @Roles(Role.ADMIN)
-  @ApiOperation({ summary: ProductsSummary.UPDATE_PRODUCT })
+  @ApiOperation({
+    summary: ProductSummary.UPDATE_PRODUCT,
+    description: `Role: ${Role.ADMIN}`,
+  })
   updateProduct(
     @Param() idDTO: IdDTO,
     @Body() updateProductDTO: UpdateProductDTO,
@@ -58,7 +64,10 @@ export class ProductController {
 
   @Delete(':id')
   @Roles(Role.ADMIN)
-  @ApiOperation({ summary: ProductsSummary.DELETE_PRODUCT })
+  @ApiOperation({
+    summary: ProductSummary.DELETE_PRODUCT,
+    description: `Role: ${Role.ADMIN}`,
+  })
   deleteProduct(@Param() idDTO: IdDTO) {
     return this.productService.handleDeleteProduct(idDTO);
   }

@@ -10,12 +10,14 @@ import {
 import { MetaDTO } from 'src/common/dto/meta.dto';
 import { PageDTO } from 'src/common/dto/page.dto';
 import { RateService } from '../rate/rate.service';
+import { VersionService } from '../version/version.service';
 
 @Injectable()
 export class ProductService {
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
+    private productVersionService: VersionService,
     private rateService: RateService,
   ) {}
 
@@ -27,7 +29,6 @@ export class ProductService {
           id: true,
           name: true,
           description: true,
-          price: true,
         },
       });
       if (result) {
@@ -54,7 +55,6 @@ export class ProductService {
         select: {
           id: true,
           name: true,
-          price: true,
         },
       });
 
@@ -76,11 +76,17 @@ export class ProductService {
 
   async handleAddProduct(data: any): Promise<HttpResponse> {
     try {
-      await this.productRepository.save(data);
-      return HttpResponse(
-        HttpStatus.CREATED,
-        CommonMessage.ADD_PRODUCT_SUCCEED,
-      );
+      const result = await this.productRepository.save(data.product);
+      if (result && result.id) {
+        await this.productVersionService.handleAddVersion({
+          productId: result.id,
+          versions: data.versions,
+        });
+        return HttpResponse(
+          HttpStatus.CREATED,
+          CommonMessage.ADD_PRODUCT_SUCCEED,
+        );
+      }
     } catch (error) {
       return HttpResponse(HttpStatus.INTERNAL_SERVER_ERROR, error);
     }

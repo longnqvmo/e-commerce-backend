@@ -5,7 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './modules/user/user.module';
 import { ProductModule } from './modules/product/product.module';
 import { TokenModule } from './modules/token/token.module';
-import { ProductImageModule } from './modules/product-image/product-image.module';
+import { ProductImageModule } from './modules/product_image/product_image.module';
 import { CategoryModule } from './modules/category/category.module';
 import { CommentModule } from './modules/comment/comment.module';
 import { RateModule } from './modules/rate/rate.module';
@@ -13,6 +13,9 @@ import { FavoriteModule } from './modules/favorite/favorite.module';
 import { ProductCategoryModule } from './modules/product-category/product-category.module';
 import { UploadModule } from './modules/upload/upload.module';
 import { MailModule } from './modules/mail/mail.module';
+import { AttributeModule } from './modules/attribute/attribute.module';
+import { VersionModule } from './modules/version/version.module';
+import { OptionModule } from './modules/option/option.module';
 
 @Module({
   imports: [
@@ -23,12 +26,14 @@ import { MailModule } from './modules/mail/mail.module';
     TokenModule,
     ProductModule,
     ProductImageModule,
+    AttributeModule,
+    OptionModule,
+    VersionModule,
     CategoryModule,
     CommentModule,
     RateModule,
     FavoriteModule,
     ProductCategoryModule,
-    TokenModule,
     ProductImageModule,
     UploadModule,
     MailModule,

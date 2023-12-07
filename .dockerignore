@@ -1,0 +1,10 @@
+# dependencies
+/node_modules
+
+# misc
+npm-debug.log
+yarn-error.log
+
+# System Files
+dist
+node_modules

@@ -1,19 +1,19 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class UpdateProductDTO {
+export class UpdateVersionDTO {
   @IsNotEmpty()
-  @IsString()
+  @IsNumber()
   @ApiProperty({
-    description: 'Product name',
+    description: 'Product version',
     example: 'Example',
   })
-  name: string;
+  version: number;
 
   @IsNotEmpty()
   @IsString()
   @ApiProperty({
-    description: 'Product description',
+    description: 'Version description',
     example: 'Example',
   })
   description: string;

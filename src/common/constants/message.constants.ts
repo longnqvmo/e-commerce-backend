@@ -11,6 +11,18 @@ export const CommonMessage = {
   UPDATE_PRODUCT_SUCCEED: 'Product successfully updated!',
   DELETE_PRODUCT_SUCCEED: 'Product successfully deleted!',
 
+  ADD_VERSION_SUCCEED: 'Version successfully added!',
+  UPDATE_VERSION_SUCCEED: 'Version successfully updated!',
+  DELETE_VERSION_SUCCEED: 'Version successfully deleted!',
+
+  ADD_ATTRIBUTE_SUCCEED: 'Attribute successfully added!',
+  UPDATE_ATTRIBUTE_SUCCEED: 'Attribute successfully updated!',
+  DELETE_ATTRIBUTE_SUCCEED: 'Attribute successfully deleted!',
+
+  ADD_OPTION_SUCCEED: 'Option successfully added!',
+  UPDATE_OPTION_SUCCEED: 'Option successfully updated!',
+  DELETE_OPTION_SUCCEED: 'Option successfully deleted!',
+
   ADD_COMMENT_SUCCEED: 'Comment successfully added!',
   UPDATE_COMMENT_SUCCEED: 'Comment successfully updated!',
   DELETE_COMMENT_SUCCEED: 'Comment successfully deleted!',
@@ -37,6 +49,15 @@ export const ErrorMessage = {
 
   COMMENT_NOT_FOUND: 'Comment does not exists!',
   COMMENT_CAN_NOT_DELETE: `You can't delete this comment!`,
+
+  VERSION_NOT_FOUND: 'Version does not exists!',
+  VERSION_EXISTS: 'This version already exists in this product!',
+
+  ATTRIBUTE_NOT_FOUND: 'Attribute does not exists!',
+  ATTRIBUTE_EXISTS: 'This attribute already exists!',
+
+  OPTION_NOT_FOUND: 'Option does not exists!',
+  OPTION_EXISTS: 'This option already exists in this attribute!',
 };
 
 export const WarningMessage = {

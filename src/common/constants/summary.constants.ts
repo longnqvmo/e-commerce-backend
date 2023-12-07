@@ -4,12 +4,26 @@ export enum AuthSummary {
   CHANGE_PASSWORD = 'Change password',
 }
 
-export enum ProductsSummary {
+export enum ProductSummary {
   GET_PRODUCT = 'Get product info',
   GET_ALL_PRODUCTS = 'Get all product',
   ADD_PRODUCT = 'Add product',
   UPDATE_PRODUCT = 'Update product',
   DELETE_PRODUCT = 'Delete product',
+
+  ADD_VERSION = 'Add product version',
+  UPDATE_VERSION = 'Update product version',
+  DELETE_VERSION = 'Delete product version',
+}
+
+export enum AttributeSummary {
+  ADD_ATTRIBUTE = 'Add attribute',
+  UPDATE_ATTRIBUTE = 'Update attribute',
+  DELETE_ATTRIBUTE = 'Delete attribute',
+
+  ADD_OPTION = 'Add attribute option version',
+  UPDATE_OPTION = 'Update attribute option version',
+  DELETE_OPTION = 'Delete attribute option version',
 }
 
 export enum RateSummary {

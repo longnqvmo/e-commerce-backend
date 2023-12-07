@@ -1,28 +1,47 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsArray, IsObject } from 'class-validator';
 
-export class AddProductDTO {
-  @IsNotEmpty()
-  @IsString()
+export class ProductDTO {
+  @IsObject()
   @ApiProperty({
-    description: 'Product name',
-    example: 'Example',
+    description: 'name',
+    example: 'example',
   })
   name: string;
 
-  @IsNotEmpty()
-  @IsString()
+  @IsArray()
   @ApiProperty({
-    description: 'Product description',
-    example: 'Example',
+    description: 'description',
+    example: 'example',
   })
   description: string;
+}
 
-  @IsNotEmpty()
-  @IsNumber()
+export class AddProductDTO {
+  @IsObject()
   @ApiProperty({
-    description: 'Product price',
-    example: 'Example',
+    description: 'product',
+    example: {
+      name: 'example',
+      description: 'example',
+    },
   })
-  price: number;
+  product: object;
+
+  @IsArray()
+  @ApiProperty({
+    isArray: true,
+    description: 'version',
+    example: [
+      {
+        version: 'Example',
+        description: 'Example',
+      },
+      {
+        version: 'Example',
+        description: 'Example',
+      },
+    ],
+  })
+  versions: any;
 }

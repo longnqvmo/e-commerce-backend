@@ -30,7 +30,10 @@ export class CommentController {
   }
 
   @Post(':id')
-  @ApiOperation({ summary: CommentsSummary.ADD_COMMENT })
+  @ApiOperation({
+    summary: CommentsSummary.ADD_COMMENT,
+    description: `Require: login`,
+  })
   addComment(
     @Request() req: any,
     @Param() idDTO: IdDTO,
@@ -40,7 +43,10 @@ export class CommentController {
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: CommentsSummary.DELETE_COMMENT })
+  @ApiOperation({
+    summary: CommentsSummary.DELETE_COMMENT,
+    description: `Require: login`,
+  })
   deleteProduct(@Request() req: any, @Param() idDTO: IdDTO) {
     return this.commentService.handleDeleteComment(req.user, idDTO);
   }

@@ -1,7 +1,7 @@
 import { Injectable, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProductImage } from './model/product-image.model';
+import { ProductImage } from './model/product_image.model';
 import { Product } from '../product/model/product.model';
 import { HttpResponse } from 'src/configs/HttpResponse.config';
 import {

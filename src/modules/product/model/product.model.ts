@@ -1,11 +1,12 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 import { AbstractEntity } from '../../../common/model/abstract-base.model';
-import { ProductImage } from 'src/modules/product-image/model/product-image.model';
+import { ProductImage } from 'src/modules/product_image/model/product_image.model';
 import { Favorite } from 'src/modules/favorite/model/favorite.model';
 import { ProductCategory } from 'src/modules/product-category/model/product-category.model';
 import { Rate } from 'src/modules/rate/model/rate.model';
 import { ProductCart } from 'src/modules/product-cart/model/product-cart.model';
 import { Comment } from 'src/modules/comment/model/comment.model';
+import { Version } from 'src/modules/version/model/version.model';
 
 @Entity({ name: 'products' })
 export class Product extends AbstractEntity {
@@ -21,14 +22,11 @@ export class Product extends AbstractEntity {
   })
   description: string;
 
-  @Column({
-    name: 'price',
-    nullable: false,
-  })
-  price: number;
-
   @OneToMany(() => ProductImage, (image) => image.product)
   images: ProductImage[];
+
+  @OneToMany(() => Version, (version) => version.product)
+  versions: Version[];
 
   @OneToMany(
     () => ProductCategory,

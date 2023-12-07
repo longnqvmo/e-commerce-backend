@@ -17,7 +17,7 @@ import { Public } from 'src/common/decorators/public.decorator';
 // import { Roles } from 'src/common/decorators/roles.decorator';
 // import { Role } from 'src/common/enums/enums';
 import { ProductImageSummary } from 'src/common/constants/summary.constants';
-import { ProductImageService } from './product-image.service';
+import { ProductImageService } from './product_image.service';
 import { IdDTO } from 'src/common/dto/id.dto';
 
 @ApiTags('Product images')
