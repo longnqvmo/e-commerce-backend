@@ -17,7 +17,7 @@ export class ProductService {
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
-    private productVersionService: VersionService,
+    private versionService: VersionService,
     private rateService: RateService,
   ) {}
 
@@ -25,14 +25,20 @@ export class ProductService {
     try {
       const result = await this.productRepository.findOne({
         where: { id: query.id },
+        relations: { versions: true },
         select: {
           id: true,
           name: true,
           description: true,
+          versions: {
+            id: true,
+            version: true,
+            description: true,
+          },
         },
       });
       if (result) {
-        const rate = await this.rateService.handleGetRate(query.id);
+        const rate = await this.rateService.handleGetRate(query);
         result['rate'] = rate.data;
         return HttpResponse(HttpStatus.OK, CommonMessage.OK, result);
       } else {
@@ -78,7 +84,7 @@ export class ProductService {
     try {
       const result = await this.productRepository.save(data.product);
       if (result && result.id) {
-        await this.productVersionService.handleAddVersion({
+        await this.versionService.handleAddVersion({
           productId: result.id,
           versions: data.versions,
         });

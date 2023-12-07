@@ -16,6 +16,7 @@ import { MailModule } from './modules/mail/mail.module';
 import { AttributeModule } from './modules/attribute/attribute.module';
 import { VersionModule } from './modules/version/version.module';
 import { OptionModule } from './modules/option/option.module';
+import { VAOModule } from './modules/version-attribute-option/version-attribute-option.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { OptionModule } from './modules/option/option.module';
     AttributeModule,
     OptionModule,
     VersionModule,
+    VAOModule,
     CategoryModule,
     CommentModule,
     RateModule,

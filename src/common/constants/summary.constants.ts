@@ -11,6 +11,7 @@ export enum ProductSummary {
   UPDATE_PRODUCT = 'Update product',
   DELETE_PRODUCT = 'Delete product',
 
+  GET_VERSION = 'Get version info',
   ADD_VERSION = 'Add product version',
   UPDATE_VERSION = 'Update product version',
   DELETE_VERSION = 'Delete product version',

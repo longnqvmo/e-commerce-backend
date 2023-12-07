@@ -1,22 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsObject } from 'class-validator';
 
-export class ProductDTO {
-  @IsObject()
-  @ApiProperty({
-    description: 'name',
-    example: 'example',
-  })
-  name: string;
-
-  @IsArray()
-  @ApiProperty({
-    description: 'description',
-    example: 'example',
-  })
-  description: string;
-}
-
 export class AddProductDTO {
   @IsObject()
   @ApiProperty({
@@ -34,14 +18,30 @@ export class AddProductDTO {
     description: 'version',
     example: [
       {
-        version: 'Example',
-        description: 'Example',
+        version: 'example',
+        description: 'example',
+        attributes: [
+          {
+            attributeId: 'attribute-id',
+            optionId: 'option-id',
+          },
+          {
+            attributeId: 'attribute-id',
+            optionId: 'option-id',
+          },
+        ],
       },
       {
-        version: 'Example',
-        description: 'Example',
+        version: 'example',
+        description: 'example',
+        attributes: [
+          {
+            attributeId: 'attribute-id',
+            optionId: 'option-id',
+          },
+        ],
       },
     ],
   })
-  versions: any;
+  versions: object[];
 }

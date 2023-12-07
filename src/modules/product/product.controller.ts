@@ -19,9 +19,9 @@ import { IdDTO } from 'src/common/dto/id.dto';
 import { PaginateDTO } from 'src/common/dto/paginate.dto';
 import { ProductSummary } from 'src/common/constants/summary.constants';
 
-@ApiTags('Products')
+@ApiTags('Product')
 @ApiBearerAuth()
-@Controller('products')
+@Controller('product')
 export class ProductController {
   constructor(private productService: ProductService) {}
 

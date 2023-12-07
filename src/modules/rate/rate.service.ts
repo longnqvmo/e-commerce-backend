@@ -24,8 +24,8 @@ export class RateService {
         where: { productId: query.id },
         select: { rate: true },
       });
+      let result: number = 0;
       if (rates && rates.length > 0) {
-        let result: number = 0;
         rates.map((rate) => {
           if (result === 0) {
             result = rate.rate;
@@ -35,10 +35,7 @@ export class RateService {
         });
         return HttpResponse(HttpStatus.OK, CommonMessage.OK, result);
       } else {
-        return HttpResponse(
-          HttpStatus.NOT_FOUND,
-          ErrorMessage.PRODUCT_NOT_FOUND,
-        );
+        return HttpResponse(HttpStatus.OK, CommonMessage.OK, result);
       }
     } catch (error) {
       return HttpResponse(HttpStatus.INTERNAL_SERVER_ERROR, error);

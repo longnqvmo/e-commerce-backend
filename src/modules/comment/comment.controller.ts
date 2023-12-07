@@ -16,9 +16,9 @@ import { AddCommentDTO } from './dto/add-comment.dto';
 import { PaginateDTO } from 'src/common/dto/paginate.dto';
 import { CommentsSummary } from 'src/common/constants/summary.constants';
 
-@ApiTags('Comments')
+@ApiTags('Comment')
 @ApiBearerAuth()
-@Controller('comments')
+@Controller('comment')
 export class CommentController {
   constructor(private commentService: CommentService) {}
 

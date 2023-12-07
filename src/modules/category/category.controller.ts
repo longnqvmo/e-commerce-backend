@@ -17,9 +17,9 @@ import { PaginateDTO } from 'src/common/dto/paginate.dto';
 import { AddCategoryDTO } from './dto/add-category.dto';
 import { CategoriesSummary } from 'src/common/constants/summary.constants';
 
-@ApiTags('Categories')
+@ApiTags('Category')
 @ApiBearerAuth()
-@Controller('categories')
+@Controller('category')
 export class CategoryController {
   constructor(private categoryService: CategoryService) {}
 

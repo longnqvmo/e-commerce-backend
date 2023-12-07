@@ -5,9 +5,9 @@ import { IdDTO } from 'src/common/dto/id.dto';
 import { PaginateDTO } from 'src/common/dto/paginate.dto';
 import { FavoritesSummary } from 'src/common/constants/summary.constants';
 
-@ApiTags('Favorites')
+@ApiTags('Favorite')
 @ApiBearerAuth()
-@Controller('favorites')
+@Controller('favorite')
 export class FavoriteController {
   constructor(private favoriteService: FavoriteService) {}
 

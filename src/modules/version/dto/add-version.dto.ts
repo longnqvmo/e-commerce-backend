@@ -18,10 +18,26 @@ export class AddVersionDTO {
       {
         version: 'example',
         description: 'example',
+        attributes: [
+          {
+            attributeId: 'attribute-id',
+            optionId: 'option-id',
+          },
+          {
+            attributeId: 'attribute-id',
+            optionId: 'option-id',
+          },
+        ],
       },
       {
         version: 'example',
         description: 'example',
+        attributes: [
+          {
+            attributeId: 'attribute-id',
+            optionId: 'option-id',
+          },
+        ],
       },
     ],
   })

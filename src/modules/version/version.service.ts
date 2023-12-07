@@ -7,13 +7,31 @@ import {
   CommonMessage,
   ErrorMessage,
 } from 'src/common/constants/message.constants';
+import { VAOService } from '../version-attribute-option/version-attribute-option.service';
 
 @Injectable()
 export class VersionService {
   constructor(
     @InjectRepository(Version)
     private versionRepository: Repository<Version>,
+    private vaoService: VAOService,
   ) {}
+
+  async handleGetVersion(query: any): Promise<HttpResponse> {
+    try {
+      await this.versionRepository.findOne({
+        where: { id: query.id },
+        relations: { versionAttributeOptions: true },
+        select: {
+          id: true,
+          version: true,
+          description: true,
+        },
+      });
+    } catch (error) {
+      return HttpResponse(HttpStatus.INTERNAL_SERVER_ERROR, error);
+    }
+  }
 
   async handleAddVersion(data: any): Promise<HttpResponse> {
     try {
@@ -27,10 +45,17 @@ export class VersionService {
         if (result) {
           continue;
         } else {
-          await this.versionRepository.save({
+          const version = await this.versionRepository.save({
             productId: data.productId,
             version: data.versions[i].version,
+            description: data.versions[i].description,
           });
+          if (version && version.id) {
+            await this.vaoService.handleAddVersionAttribute({
+              versionId: version.id,
+              attributes: data.versions[i].attributes,
+            });
+          }
         }
       }
       return HttpResponse(HttpStatus.OK, CommonMessage.ADD_VERSION_SUCCEED);
