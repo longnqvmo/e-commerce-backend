@@ -25,7 +25,11 @@ export class ProductService {
     try {
       const result = await this.productRepository.findOne({
         where: { id: query.id },
-        relations: { versions: true },
+        relations: {
+          versions: {
+            versionAttributeOptions: { attribute: true, option: true },
+          },
+        },
         select: {
           id: true,
           name: true,
@@ -34,6 +38,15 @@ export class ProductService {
             id: true,
             version: true,
             description: true,
+            versionAttributeOptions: {
+              id: true,
+              attribute: {
+                attribute: true,
+              },
+              option: {
+                option: true,
+              },
+            },
           },
         },
       });

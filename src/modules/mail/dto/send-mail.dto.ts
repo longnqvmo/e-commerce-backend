@@ -6,7 +6,7 @@ export class SendMailDTO {
   @IsString()
   @ApiProperty({
     description: 'to',
-    example: 'blueeyesingning03@gmail.com',
+    example: 'example@gmail.com',
   })
   to: string;
 

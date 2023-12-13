@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 import { AbstractEntity } from '../../../common/model/abstract-base.model';
-import { ProductImage } from 'src/modules/product_image/model/product_image.model';
+import { ProductImage } from 'src/modules/image/model/product_image.model';
 import { Favorite } from 'src/modules/favorite/model/favorite.model';
 import { ProductCategory } from 'src/modules/product-category/model/product-category.model';
 import { Rate } from 'src/modules/rate/model/rate.model';

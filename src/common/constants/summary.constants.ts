@@ -65,6 +65,7 @@ export enum UploadSummary {
   DELETE_IMAGES = 'Delete multiple images',
 }
 
-export enum ProductImageSummary {
+export enum ImageSummary {
   UPLOAD_PRODUCT_IMAGE = 'Upload product image',
+  UPLOAD_VERSION_IMAGE = 'Upload version image',
 }
